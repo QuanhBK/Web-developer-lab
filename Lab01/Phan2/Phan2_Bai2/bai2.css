@@ -1,0 +1,61 @@
+
+*{
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+img {
+  border-radius: 15px;
+}
+
+.about {
+  font-size: 48px;
+  font-weight: bold;
+  color: red;
+  /* Màu chữ chính */
+  text-shadow: 4px 4px blue;
+  /* Đổ bóng màu đỏ */
+}
+
+
+.about-content::first-letter {
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.extreme{
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 25px;
+}
+.male{
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 25px;
+}
+.begin{
+  text-decoration: underline;
+  font-style:italic;
+  font-size: 25px;
+}
+.location{
+  color: #aa3d42;
+  font-weight: bold;
+  font-size: larger;
+}
+.upcoming{
+  color: #aa3d42;
+  font-weight: bold;
+  font-size: larger;
+}
+table, td, th{
+  border: 1px solid black;
+  border-collapse: collapse;
+  border-width: 0.5px;
+  text-align: center;
+  width: 250px;
+  height: auto;
+}
+.twitter{
+  text-shadow: 2px 2px 2px grey;
+  color:#6f9396;
+}

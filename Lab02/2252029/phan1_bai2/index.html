@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Site Title</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<!-- Header -->
+<nav class="header-bar navbar navbar-expand-lg bg-light border-bottom">
+  <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">Site Title</a>
+
+      <!-- Nút toggle khi trên mobile -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+        <div class="contact-information navbar-nav ms-4 gap-3">
+          <a class="text-decoration-none" href="#Categories">Categories</a>
+          <span>|</span>
+          <a class="text-decoration-none" href="#Contactus">Contact us</a>
+          <span>|</span>
+          <a class="text-decoration-none" href="#Followus">Follow us</a>
+      </div>
+      
+      
+          <div class="search-box">
+              <input type="text" class="form-control" placeholder="Search">
+          </div>
+      </div>
+  </div>
+</nav>
+
+<!-- Page Layout -->
+<div class="container mt-3">
+    <div class="row">
+        <!-- Left Sidebar -->
+        <div class="col-md-2 sidebar">
+            <div class="category-items fw-bold bg-light p-2">Category</div>
+            <ul class="list-unstyled ps-3">
+                <li>Item 1...</li>
+                <li>Item 2...</li>
+                <li>Item 3...</li>
+                <li>Item 4...</li>
+                <li>Item 5...</li>
+            </ul>
+            <div class="top-product-items fw-bold bg-light p-2 mt-3">Top Products</div>
+            <ul class="list-unstyled ps-3">
+                <li>Item 1...</li>
+                <li>Item 2...</li>
+                <li>Item 3...</li>
+                <li>Item 4...</li>
+                <li>Item 5...</li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-7 main-content">
+            <p>Home > Main Category > Sub Category</p>
+            <div class="row">
+                <!-- Ảnh lớn và ảnh nhỏ -->
+                <div class="col-md-4 d-flex flex-column align-items-center">
+                    <!-- Ảnh lớn -->
+                    <div>
+                        <img src="/ref.png" class="img-fluid" alt="Main Product Image">
+                    </div>
+
+                    <!-- Hàng chứa ảnh nhỏ -->
+                    <div class="row small-images mt-2 w-100 justify-content-center">
+                        <div class="col-3 d-flex justify-content-center">
+                            <img src="/ref.png" class="img-fluid small-img border" alt="Product Image 1">
+                        </div>
+                        <div class="col-3 d-flex justify-content-center">
+                            <img src="/ref.png" class="img-fluid small-img border" alt="Product Image 2">
+                        </div>
+                        <div class="col-3 d-flex justify-content-center">
+                            <img src="/ref.png" class="img-fluid small-img border" alt="Product Image 3">
+                        </div>
+                        <div class="col-3 d-flex justify-content-center">
+                            <img src="/ref.png" class="img-fluid small-img border" alt="Product Image 4">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thông tin sản phẩm -->
+                <div class="col-md-8">
+                    <h3>Sample Product Title</h3>
+                    <p><strong>Summary:</strong></p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut alliquip ex ea</p>
+                    <button class="btn btn-outline-dark">Buy Now</button>
+                    <p class="mt-3"><strong>Description:</strong></p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Sidebar -->
+        <div class="col-md-3 right-ad d-flex align-items-center justify-content-center">
+          <p class="mb-0">160 x 600</p>
+      </div>
+      
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer text-center bg-light py-3 mt-3">
+    <p>Footer Information ...</p>
+    <a href="#" class="text-decoration">Link 1</a> |
+    <a href="#" class="text-decoration">Link 2</a> |
+    <a href="#" class="text-decoration">Link 3</a>
+</div>
+
+
+
+</body>
+</html>

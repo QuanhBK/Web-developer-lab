@@ -1,0 +1,194 @@
+/* Reset mặc định */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url('/images03/bg-body.png');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center top;
+  background-size: 100vw 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Layout chính */
+.container {
+  width: 43.7%;
+  min-height: 100vh; /* Đảm bảo trang chiếm đủ chiều cao */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  min-height: 140px; 
+  background-image: url('/images03/bg-header.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+.header p {
+  color: grey;
+  font-size: 30px;
+  text-align: left;
+  padding: 26px;
+}
+
+/* Menu */
+.menu {
+  background-image: url('/images03/bg-menu.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center; 
+  justify-content: left;
+  padding-left: 30px;
+}
+
+.menu a {
+  color: aliceblue;
+  text-decoration: none;
+  margin-right: 35px;
+  font-size: 14px;
+}
+
+/* Nội dung chính */
+.paragraph-content {
+  flex: 1; /* Đẩy footer xuống */
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.left-side {
+  width: 70%;
+}
+
+.sponsor img {
+  width: 95%;
+  height: auto;
+}
+
+.paragraph {
+  margin-left: 10px;
+}
+
+.paragraph h1 {
+  color: #cbd789;
+}
+
+.date {
+  color: grey;
+}
+
+.content {
+  text-align: justify;
+}
+
+.comment {
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
+}
+
+.comment img {
+  width: 20px;
+  height: auto;
+  margin-right: 5px;
+}
+
+/* Sidebar phải */
+.right-side {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10px;
+  position: relative;
+  top: 0px;
+}
+
+
+.live-feed {
+  width: 100%;
+  background-color: #f1f1f1; /* Màu nền chuẩn */
+  border-radius: 10px; /* Bo tròn toàn bộ khung */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding-bottom: 10px;
+  text-align: left;
+  font-size: 14px;
+  overflow: hidden;
+  margin-top: 0px; /* Đảm bảo không bị đẩy lên quá cao */
+}
+
+
+.live-feed-title {
+  background-image: url('/images03/button-feed.png'); /* Ảnh nền tiêu đề */
+  background-size: contain; /* Đảm bảo ảnh giữ nguyên tỷ lệ */
+  background-position: center; /* Căn giữa ảnh */
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 45px; /* Điều chỉnh chiều cao chuẩn */
+  margin-top: 0px; /* Tránh bị lệch so với menu */
+  border-radius: 10px 10px 0 0; /* Bo góc trên */
+  overflow: hidden; /* Đảm bảo ảnh nền không che mất bo góc */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Danh sách các link */
+.live-feed ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.live-feed ul li {
+  padding: 8px;
+  border-bottom: 1px solid rgb(135, 134, 134);
+}
+
+.live-feed ul li:last-child {
+  border-bottom: none;
+}
+
+/* Các link bên trong */
+.live-feed a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  height: 60px; /* Chiều cao cố định */
+  background-image: url('/images03/bg-footer.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Căn chữ về bên trái */
+  padding-top: 30px;
+  padding-left: 20px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}

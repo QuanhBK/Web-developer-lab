@@ -1,0 +1,145 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  background-color: gray;
+  font-weight: bold;
+  font-size: larger;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+/* Menu */
+.menu {
+  height: 50px;
+  background-color: blue;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+.menu a {
+  color: aliceblue;
+  text-decoration: none;
+}
+
+.menu span {
+  color: aliceblue;
+  text-decoration: underline;
+  margin-right: 15px;
+}
+
+/* Nội dung chính */
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-grow: 1;
+}
+
+/* Cột bên trái */
+.container-1 {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+.link-1, .link-2 {
+  height: 150px;
+  padding: 10px;
+}
+
+.link-1 {
+  background-color: yellow;
+}
+
+.link-1 ul, .link-2 ul {
+  padding-left: 20px;
+  margin-left: 0;
+  list-style-position: inside;
+}
+
+.link-2 {
+  background-color: gray;
+  color: white;
+}
+
+.link-2 a {
+  color:blue;
+}
+
+/* Cột bên phải (chứa đoạn văn bản) */
+.container-2 {
+  flex: 1;
+  padding: 10px;
+  max-width: 100%;
+  height: auto;
+  text-align: justify;
+}
+
+.first-paragraph{
+  margin-top: 20px;
+  display:flex;
+  flex-direction: column;
+  gap: 20px;
+  
+}
+
+/* Phần hai ô màu xanh và đỏ */
+.second-paragraph {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.left-paragraph, .right-paragraph {
+  flex: 1;
+  min-width: 250px;
+  height: 100px;
+  padding: 10px;
+  color: black;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-paragraph {
+  background-color: green;
+}
+
+.right-paragraph {
+  background-color: red;
+}
+
+/* Footer */
+.footer {
+  background-color: blue;
+  font-weight: bold;
+  font-size: larger;
+  height: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: auto;
+}
+}
