@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>LocalStorage Cookie Manager</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #007bff;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+        }
+        .btn-warning {
+            background-color: #ffc107;
+        }
+        .table th, .table td {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h3>Cookie Manager (LocalStorage)</h3>
+        </div>
+        <div class="card-body">
+            <div class="d-flex justify-content-between mb-3">
+                <button onclick="listLocalStorageC()" class="btn btn-primary">View LocalStorage Cookies</button>
+                <button onclick="formaddC('', '', '', '', '', '')" class="btn btn-success">Add Cookie</button>
+            </div>
+
+            <div id="body">
+                <!-- Cookie list will be displayed here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Thêm Cookie vào LocalStorage
+    const addLocalStorageCookie = () => {
+        const name = document.getElementsByName("name")[0].value;
+        const value = document.getElementsByName("value")[0].value;
+        const expire = document.getElementsByName("expire")[0].value;
+        const path = document.getElementsByName("path")[0].value || "/";
+        const domain = document.getElementsByName("domain")[0].value || window.location.hostname;
+        const secure = document.getElementsByName("secure")[0].value;
+
+        if (!name || !value) {
+            alert("Please fill in Cookie name and Cookie value");
+            return;
+        }
+
+        // Tạo cookie object
+        let cookie = {
+            name: name,
+            value: value,
+            expire: expire ? new Date(new Date().getTime() + expire * 24 * 60 * 60 * 1000).toISOString() : "",
+            path: path,
+            domain: domain,
+            secure: secure === "true"
+        };
+
+        // Lấy dữ liệu cookies đã có trong Local Storage
+        let cookies = JSON.parse(localStorage.getItem("cookies")) || [];
+
+        // Thêm cookie mới vào mảng cookies
+        cookies.push(cookie);
+
+        // Lưu lại mảng cookies vào Local Storage
+        localStorage.setItem("cookies", JSON.stringify(cookies));
+
+        alert("Cookie added to LocalStorage!");
+        listLocalStorageC();  // Làm mới danh sách cookies sau khi thêm
+    };
+
+    // Hiển thị cookies từ LocalStorage
+    const listLocalStorageC = () => {
+        let cookies = JSON.parse(localStorage.getItem("cookies")) || [];
+        let body = document.getElementById("body");
+        body.innerHTML = ""; // Xóa nội dung cũ
+
+        if (cookies.length === 0) {
+            body.innerHTML = "<p>No cookies found in LocalStorage. Please add a cookie.</p>";
+            return;
+        }
+
+        let table = document.createElement("table");
+        table.classList.add("table", "table-bordered", "table-striped");
+
+        let thead = document.createElement("thead");
+        let tr = document.createElement("tr");
+        ["Name", "Value", "Action"].forEach(text => {
+            let th = document.createElement("th");
+            th.innerText = text;
+            tr.appendChild(th);
+        });
+        thead.appendChild(tr);
+        table.appendChild(thead);
+
+        let tbody = document.createElement("tbody");
+        cookies.forEach(cookie => {
+            let tr = document.createElement("tr");
+            let tdName = document.createElement("td");
+            tdName.innerText = cookie.name;
+
+            let tdValue = document.createElement("td");
+            tdValue.innerText = cookie.value;
+
+            let tdAction = document.createElement("td");
+
+            let editButton = document.createElement("button");
+            editButton.classList.add("btn", "btn-warning");
+            editButton.innerText = "Edit";
+            editButton.onclick = () => formaddC(cookie.name, cookie.value);
+
+            let deleteButton = document.createElement("button");
+            deleteButton.classList.add("btn", "btn-danger");
+            deleteButton.innerText = "Delete";
+            deleteButton.onclick = () => deleteLocalStorageC(cookie.name);
+
+            tdAction.appendChild(editButton);
+            tdAction.appendChild(deleteButton);
+            tr.appendChild(tdName);
+            tr.appendChild(tdValue);
+            tr.appendChild(tdAction);
+            tbody.appendChild(tr);
+        });
+
+        table.appendChild(tbody);
+        body.appendChild(table);
+    };
+
+    // Xóa cookie từ LocalStorage
+    const deleteLocalStorageC = (name) => {
+        let cookies = JSON.parse(localStorage.getItem("cookies")) || [];
+
+        // Lọc bỏ cookie có name cần xóa
+        cookies = cookies.filter(cookie => cookie.name !== name);
+
+        // Cập nhật lại Local Storage
+        localStorage.setItem("cookies", JSON.stringify(cookies));
+
+        alert("Cookie deleted successfully from LocalStorage!");
+        listLocalStorageC();  // Làm mới danh sách cookies sau khi xóa
+    };
+
+    // Tạo Form thêm Cookie
+    const formaddC = (name = '', value = '', expire = '', path = '/', domain = '', secure = '') => {
+        let body = document.getElementById("body");
+        body.innerHTML = "";
+        let form = document.createElement("form");
+        form.style = "width: 100%;";
+
+        let fields = [
+            {name: "name", label: "Cookie Name", value: name},
+            {name: "value", label: "Cookie Value", value: value},
+            {name: "expire", label: "Cookie Expire (days)", value: expire},
+            {name: "path", label: "Cookie Path", value: path},
+            {name: "domain", label: "Cookie Domain", value: domain},
+            {name: "secure", label: "Cookie Secure", value: secure}
+        ];
+
+        fields.forEach(field => {
+            let div = document.createElement("div");
+            div.classList.add("mb-3");
+
+            let label = document.createElement("label");
+            label.classList.add("form-label");
+            label.innerText = field.label + ":";
+
+            let input = document.createElement("input");
+            input.classList.add("form-control");
+            input.type = field.name === "expire" ? "number" : "text";
+            input.name = field.name;
+            input.value = field.value || "";
+
+            if (field.name === "path") {
+                input.placeholder = "/ (root path), /admin, /profile";
+            }
+
+            div.appendChild(label);
+            div.appendChild(input);
+            form.appendChild(div);
+        });
+
+        let submit = document.createElement("button");
+        submit.type = "button";
+        submit.onclick = addLocalStorageCookie;
+        submit.classList.add("btn", "btn-primary");
+        submit.innerText = "Submit";
+        form.appendChild(submit);
+
+        body.appendChild(form);
+    };
+
+</script>
+
+</body>
+</html>
